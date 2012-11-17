@@ -21,8 +21,9 @@ handlers:
 - url: /pages
   static_dir: pages
     
-- url: .*
-  script: main.app
+- url: (.*)
+  static_files: pages/index.html 
+  upload: pages/index.html
 
 libraries:
 - name: webapp2
