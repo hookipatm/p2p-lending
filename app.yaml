@@ -20,7 +20,11 @@ handlers:
 
 - url: /pages
   static_dir: pages
-    
+
+- url: /pages/notes.html
+  static_files: pages/notes.html 
+  upload: pages/notes.html
+      
 - url: (.*)
   static_files: pages/index.html 
   upload: pages/index.html
