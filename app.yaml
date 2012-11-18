@@ -24,6 +24,10 @@ handlers:
 - url: /pages/notes.html
   static_files: pages/notes.html 
   upload: pages/notes.html
+
+- url: /pages/survey.html
+  static_files: pages/survey.html 
+  upload: pages/survey.html
       
 - url: (.*)
   static_files: pages/index.html 

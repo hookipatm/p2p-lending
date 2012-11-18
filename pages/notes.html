@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>P2P Lending Analytics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -11,6 +11,39 @@
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
+
+.file-wrapper {
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+
+.file-wrapper input {
+  cursor: pointer;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 100px;
+	filter: alpha(opacity=1);
+  -moz-opacity: 0.01;
+  opacity: 0.01;
+}
+   
+.file-wrapper .button {
+  background: #79130e;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 18px;
+  text-transform: uppercase;
+}
+
       body {
         padding-top: 60px;
         padding-bottom: 40px;
@@ -72,8 +105,35 @@
 
     <div class="container">
 
-table goes here
+<span class="file-wrapper">
+  <input type="file" name="photo" id="photo" />
+  <span class="button">Choose a Photo</span>
+</span>
 
+<script type="text/javascript">
+VIGET.fileInputs = function() {
+	  var $this = $(this),
+	      $val = $this.val(),
+	      valArray = $val.split('\\'),
+	      newVal = valArray[valArray.length-1],
+	      $button = $this.siblings('.button'),
+	      $fakeFile = $this.siblings('.file-holder');
+	  if(newVal !== '') {
+	    $button.text('Photo Chosen');
+	    if($fakeFile.length === 0) {
+	      $button.after('' + newVal + '');
+	    } else {
+	      $fakeFile.text(newVal);
+	    }
+	  }
+	};
+	 
+	$(document).ready(function() {
+	  $('.file-wrapper input[type=file]')
+	  .bind('change focus click', VIGET.fileInputs);
+	});
+
+</script>
       <hr>
 
       <footer>
